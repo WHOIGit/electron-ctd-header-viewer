@@ -88,3 +88,36 @@ h1 {
   display: inline-block;
   min-width: 200px;
 }
+
+.custom-time-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-time-input input[type="date"] {
+    margin-right: 5px;
+  }
+  
+  .custom-time-input input[type="text"] {
+    width: 2em;
+    padding: 2px;
+    text-align: center;
+    margin-right: 2px;
+  }
+  
+  .custom-time-input .time-separator {
+    margin: 0 2px;
+  }
+  
+  .custom-time-input label {
+    font-size: 0.8em;
+    margin-top: 2px;
+    text-align: center;
+    display: block;
+  }
+  
+  .custom-time-input .time-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
