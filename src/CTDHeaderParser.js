@@ -1,6 +1,9 @@
 // CTDHeaderParser.js
 
-export function parseCTDHeader(headerContent) {
+export function parseCTDHeader(headerContentBuffer) {
+  const decoder = new TextDecoder('iso-8859-1');
+  const headerContent = decoder.decode(headerContentBuffer);
+
   // Extract NMEA UTC time
   const nmeaTimeMatch = headerContent.match(/\* NMEA UTC \(Time\) = (.+)/);
   const nmeaTime = nmeaTimeMatch ? new Date(nmeaTimeMatch[1] + " UTC") : null;
@@ -28,9 +31,9 @@ export function parseCTDHeader(headerContent) {
   const variables = [];
   const lines = headerContent.split('\n');
   lines.forEach(line => {
-    const varMatch = line.match(/# name \d+ = (.+?)(:.*)?$/);
+    const varMatch = line.match(/^#\s+name\s+\d+\s*=\s*([^:]+)/);
     if (varMatch) {
-      variables.push(varMatch[1]);
+      variables.push(varMatch[1].trim());
     }
   });
 

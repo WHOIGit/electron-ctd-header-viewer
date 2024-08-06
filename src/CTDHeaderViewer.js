@@ -15,7 +15,7 @@ const CTDHeaderViewer = () => {
         const result = parseCTDHeader(content);
         setParseResult(result);
       };
-      reader.readAsText(file);
+      reader.readAsArrayBuffer(file);
     }
   }, []);
 
