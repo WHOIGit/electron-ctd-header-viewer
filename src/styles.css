@@ -50,3 +50,74 @@ h1 {
     margin: 10px 0;
     line-height: 1.4;
 }
+
+.easy-edit-inline-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.easy-edit-component-wrapper {
+    display: inline-block;
+}
+
+.easy-edit-button-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.easy-edit-button {
+    margin-right: 5px;
+    padding: 2px 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.easy-edit-button:hover {
+    background-color: #e0e0e0;
+}
+
+.label {
+  display: inline-block;
+  width: 150px;
+  margin-right: 10px;
+}
+
+.value {
+  display: inline-block;
+  min-width: 200px;
+}
+
+.custom-time-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-time-input input[type="date"] {
+    margin-right: 5px;
+  }
+  
+  .custom-time-input input[type="text"] {
+    width: 2em;
+    padding: 2px;
+    text-align: center;
+    margin-right: 2px;
+  }
+  
+  .custom-time-input .time-separator {
+    margin: 0 2px;
+  }
+  
+  .custom-time-input label {
+    font-size: 0.8em;
+    margin-top: 2px;
+    text-align: center;
+    display: block;
+  }
+  
+  .custom-time-input .time-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
