@@ -1,7 +1,9 @@
 // src/CTDHeaderViewer.js
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import EasyEdit from 'react-easy-edit';
 import { parseCTDHeader } from './CTDHeaderParser';
+import './styles.css';  // Make sure to import your CSS file
 
 const CTDHeaderViewer = () => {
   const [parseResult, setParseResult] = useState(null);
@@ -21,6 +23,34 @@ const CTDHeaderViewer = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  const save = (value, field) => {
+    if (field === 'nmeaTime' || field === 'systemTime') {
+      // Ensure the input is treated as UTC
+      value = new Date(value + 'Z');
+    } else if (field === 'latitude' || field === 'longitude') {
+      // Round to 4 decimal places
+      value = Number(parseFloat(value).toFixed(4));
+    }
+    setParseResult(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const cancel = () => {
+    // Do nothing on cancel
+  };
+
+  const formatDateForInput = (date) => {
+    if (!date) return '';
+    // Convert to ISO string and remove the 'Z' and milliseconds
+    return date.toISOString().slice(0, -5);
+  };
+
+  const formatCoordinate = (value) => {
+    return value ? value.toFixed(4) : '';
+  };
+
   return (
     <div>
       <div {...getRootProps()} className="dropzone">
@@ -34,11 +64,62 @@ const CTDHeaderViewer = () => {
       {parseResult && (
         <div className="parsed-results">
           <h2>Parsed Results:</h2>
-          <p>NMEA Time: {parseResult.nmeaTime?.toISOString()}</p>
-          <p>System Time: {parseResult.systemTime?.toISOString()}</p>
-          <p>Latitude: {parseResult.latitude?.toFixed(6)}</p>
-          <p>Longitude: {parseResult.longitude?.toFixed(6)}</p>
-          <p>Variables: {parseResult.variables.join(', ')}</p>
+          <p>
+            <span className="label">NMEA Time (UTC):</span>
+            <span className="value">
+              <EasyEdit
+                type="datetime-local"
+                value={formatDateForInput(parseResult.nmeaTime)}
+                onSave={(value) => save(value, 'nmeaTime')}
+                onCancel={cancel}
+                saveButtonLabel="Save"
+                cancelButtonLabel="Cancel"
+              />
+            </span>
+          </p>
+          <p>
+            <span className="label">System Time (UTC):</span>
+            <span className="value">
+              <EasyEdit
+                type="datetime-local"
+                value={formatDateForInput(parseResult.systemTime)}
+                onSave={(value) => save(value, 'systemTime')}
+                onCancel={cancel}
+                saveButtonLabel="Save"
+                cancelButtonLabel="Cancel"
+              />
+            </span>
+          </p>
+          <p>
+            <span className="label">Latitude:</span>
+            <span className="value">
+              <EasyEdit
+                type="number"
+                value={formatCoordinate(parseResult.latitude)}
+                onSave={(value) => save(value, 'latitude')}
+                onCancel={cancel}
+                saveButtonLabel="Save"
+                cancelButtonLabel="Cancel"
+              />
+            </span>
+          </p>
+          <p>
+            <span className="label">Longitude:</span>
+            <span className="value">
+              <EasyEdit
+                type="number"
+                value={formatCoordinate(parseResult.longitude)}
+                onSave={(value) => save(value, 'longitude')}
+                onCancel={cancel}
+                saveButtonLabel="Save"
+                cancelButtonLabel="Cancel"
+              />
+            </span>
+          </p>
+          <p>
+            <span className="label">Variables:</span>
+            <span className="value">{parseResult.variables.join(', ')}</span>
+          </p>
         </div>
       )}
     </div>
