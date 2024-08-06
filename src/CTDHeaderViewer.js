@@ -34,8 +34,8 @@ const CTDHeaderViewer = () => {
       {parseResult && (
         <div className="parsed-results">
           <h2>Parsed Results:</h2>
-          <p>NMEA Time: {parseResult.nmeaTime?.toLocaleString()}</p>
-          <p>System Time: {parseResult.systemTime?.toLocaleString()}</p>
+          <p>NMEA Time: {parseResult.nmeaTime?.toISOString()}</p>
+          <p>System Time: {parseResult.systemTime?.toISOString()}</p>
           <p>Latitude: {parseResult.latitude?.toFixed(6)}</p>
           <p>Longitude: {parseResult.longitude?.toFixed(6)}</p>
           <p>Variables: {parseResult.variables.join(', ')}</p>

@@ -3,11 +3,11 @@
 export function parseCTDHeader(headerContent) {
   // Extract NMEA UTC time
   const nmeaTimeMatch = headerContent.match(/\* NMEA UTC \(Time\) = (.+)/);
-  const nmeaTime = nmeaTimeMatch ? new Date(nmeaTimeMatch[1]) : null;
+  const nmeaTime = nmeaTimeMatch ? new Date(nmeaTimeMatch[1] + " UTC") : null;
 
   // Extract System UTC time
   const systemTimeMatch = headerContent.match(/\* System UTC = (.+)/);
-  const systemTime = systemTimeMatch ? new Date(systemTimeMatch[1]) : null;
+  const systemTime = systemTimeMatch ? new Date(systemTimeMatch[1] + " UTC") : null;
 
   // Extract latitude and longitude
   const latMatch = headerContent.match(/\* NMEA Latitude = (\d+) (\d+\.\d+) ([NS])/);
