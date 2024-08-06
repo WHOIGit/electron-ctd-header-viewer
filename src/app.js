@@ -1,5 +1,6 @@
 import React from 'react';
 import CTDHeaderViewer from './CTDHeaderViewer';
+import './styles.css';
 
 function App() {
   return (

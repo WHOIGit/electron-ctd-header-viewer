@@ -1,3 +1,4 @@
+// src/CTDHeaderViewer.js
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { parseCTDHeader } from './CTDHeaderParser';
@@ -22,7 +23,7 @@ const CTDHeaderViewer = () => {
 
   return (
     <div>
-      <div {...getRootProps()} style={dropzoneStyle}>
+      <div {...getRootProps()} className="dropzone">
         <input {...getInputProps()} />
         {isDragActive ? (
           <p>Drop the CTD header file here...</p>
@@ -31,7 +32,7 @@ const CTDHeaderViewer = () => {
         )}
       </div>
       {parseResult && (
-        <div>
+        <div className="parsed-results">
           <h2>Parsed Results:</h2>
           <p>NMEA Time: {parseResult.nmeaTime?.toLocaleString()}</p>
           <p>System Time: {parseResult.systemTime?.toLocaleString()}</p>
@@ -42,14 +43,6 @@ const CTDHeaderViewer = () => {
       )}
     </div>
   );
-};
-
-const dropzoneStyle = {
-  border: '2px dashed #cccccc',
-  borderRadius: '4px',
-  padding: '20px',
-  textAlign: 'center',
-  cursor: 'pointer',
 };
 
 export default CTDHeaderViewer;
