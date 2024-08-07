@@ -21,7 +21,7 @@ const MapWidget = ({ latitude, longitude }) => {
       <MapContainer center={position} zoom={5} style={{ height: '200px', width: '100%' }}>
         <TileLayer
           url="https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}"
-          attribution="Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri"
+          attribution="Tiles &copy; Esri &mdash; Sources: GEBCO, IHO-IOC GEBCO, NGS, Esri, DeLorme"
           maxZoom={13}
         />
         <Marker position={position} icon={customIcon}>
