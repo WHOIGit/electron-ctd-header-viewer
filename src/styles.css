@@ -168,3 +168,31 @@ h1 {
   border-radius: 4px;
   overflow: hidden;
 }
+
+.metadata {
+  display: flex;
+  gap: 20px; /* Adds space between the columns */
+}
+
+.metadata-column {
+  flex: 3; /* Takes up 3 parts of the available space */
+}
+
+.map-column {
+  flex: 2; /* Takes up 2 parts of the available space */
+}
+
+.map-column .map-widget {
+  height: 100%; /* Makes the map fill the height of its column */
+}
+
+@media (max-width: 768px) {
+  .metadata {
+    flex-direction: column;
+  }
+  
+  .metadata-column,
+  .map-column {
+    flex: 1 1 auto;
+  }
+}

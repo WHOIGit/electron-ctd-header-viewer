@@ -136,66 +136,69 @@ const CTDHeaderViewer = () => {
       </div>
       {parseResult && (
         <div className="parsed-results">
-          <h2>Parsed Results:</h2>
-          <p>
-            <span className="label">NMEA Time (UTC):</span>
-            <span className="value">
-              <EasyEdit
-                type="custom"
-                onSave={(value) => save(value, 'nmeaTime')}
-                onCancel={cancel}
-                saveButtonLabel="Save"
-                cancelButtonLabel="Cancel"
-                editComponent={<Custom24HourTimeInput />}
-                value={parseResult.nmeaTime}
-                displayComponent={<span>{parseResult.nmeaTime.toISOString()}</span>}
-              />
-            </span>
-          </p>
-          <p>
-            <span className="label">System Time (UTC):</span>
-            <span className="value">
-              <EasyEdit
-                type="custom"
-                onSave={(value) => save(value, 'systemTime')}
-                onCancel={cancel}
-                saveButtonLabel="Save"
-                cancelButtonLabel="Cancel"
-                editComponent={<Custom24HourTimeInput />}
-                value={parseResult.systemTime}
-                displayComponent={<span>{parseResult.systemTime.toISOString()}</span>}
-              />
-            </span>
-          </p>
-          <p>
-            <span className="label">Latitude:</span>
-            <span className="value">
-              <EasyEdit
-                type="number"
-                value={formatCoordinate(parseResult.latitude)}
-                onSave={(value) => save(value, 'latitude')}
-                onCancel={cancel}
-                saveButtonLabel="Save"
-                cancelButtonLabel="Cancel"
-              />
-            </span>
-          </p>
-          <p>
-            <span className="label">Longitude:</span>
-            <span className="value">
-              <EasyEdit
-                type="number"
-                value={formatCoordinate(parseResult.longitude)}
-                onSave={(value) => save(value, 'longitude')}
-                onCancel={cancel}
-                saveButtonLabel="Save"
-                cancelButtonLabel="Cancel"
-              />
-            </span>
-          </p>
-          <p>
-            <MapWidget latitude={parseResult.latitude} longitude={parseResult.longitude} />
-          </p>
+          <div class="metadata">
+            <div class="metadata-column">
+              <p>
+                <span className="label">NMEA Time (UTC):</span>
+                <span className="value">
+                  <EasyEdit
+                    type="custom"
+                    onSave={(value) => save(value, 'nmeaTime')}
+                    onCancel={cancel}
+                    saveButtonLabel="Save"
+                    cancelButtonLabel="Cancel"
+                    editComponent={<Custom24HourTimeInput />}
+                    value={parseResult.nmeaTime}
+                    displayComponent={<span>{parseResult.nmeaTime.toISOString()}</span>}
+                  />
+                </span>
+              </p>
+              <p>
+                <span className="label">System Time (UTC):</span>
+                <span className="value">
+                  <EasyEdit
+                    type="custom"
+                    onSave={(value) => save(value, 'systemTime')}
+                    onCancel={cancel}
+                    saveButtonLabel="Save"
+                    cancelButtonLabel="Cancel"
+                    editComponent={<Custom24HourTimeInput />}
+                    value={parseResult.systemTime}
+                    displayComponent={<span>{parseResult.systemTime.toISOString()}</span>}
+                  />
+                </span>
+              </p>
+              <p>
+                <span className="label">Latitude:</span>
+                <span className="value">
+                  <EasyEdit
+                    type="number"
+                    value={formatCoordinate(parseResult.latitude)}
+                    onSave={(value) => save(value, 'latitude')}
+                    onCancel={cancel}
+                    saveButtonLabel="Save"
+                    cancelButtonLabel="Cancel"
+                  />
+                </span>
+              </p>
+              <p>
+                <span className="label">Longitude:</span>
+                <span className="value">
+                  <EasyEdit
+                    type="number"
+                    value={formatCoordinate(parseResult.longitude)}
+                    onSave={(value) => save(value, 'longitude')}
+                    onCancel={cancel}
+                    saveButtonLabel="Save"
+                    cancelButtonLabel="Cancel"
+                  />
+                </span>
+              </p>
+            </div>
+            <div class="map-column">
+              <MapWidget latitude={parseResult.latitude} longitude={parseResult.longitude} />
+            </div>
+          </div>
           <p>
             <span className="label">Variables:</span>
             <table className="variables-table">
