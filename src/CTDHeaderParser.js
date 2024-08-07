@@ -28,12 +28,37 @@ export function parseCTDHeader(headerContentBuffer) {
   }
 
   // Extract variables
+
+  /*
+  Variables are on lines like this one:
+  # name 14 = flECO-AFL: Fluorescence, WET Labs ECO-AFL/FL [mg/m^3]
+  where the string between = and : is the variable name, the string after : is the variable description,
+  and the bracketed string is the variable unit.
+  */
   const variables = [];
   const lines = headerContent.split('\n');
   lines.forEach(line => {
-    const varMatch = line.match(/^#\s+name\s+\d+\s*=\s*([^:]+)/);
+    // parse the line
+    const varMatch = line.match(/^# name \d+ = ([^:]+): (.*)/);
     if (varMatch) {
-      variables.push(varMatch[1].trim());
+      const name = varMatch[1];
+      const suffix = varMatch[2];
+      const unitMatch = suffix.match(/(.*) \[(.*)\]/);
+      if (unitMatch) {
+        const description = unitMatch[1];
+        const unit = unitMatch[2];
+        variables.push({
+          name,
+          description,
+          unit
+        });
+      } else {
+        variables.push({
+          name,
+          description: suffix,
+          unit: ''
+        });
+      }
     }
   });
 

@@ -194,7 +194,24 @@ const CTDHeaderViewer = () => {
           </p>
           <p>
             <span className="label">Variables:</span>
-            <span className="value">{parseResult.variables.join(', ')}</span>
+            <table className="variables-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Unit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {parseResult.variables.map(variable => (
+                  <tr key={variable.name}>
+                    <td>{variable.name}</td>
+                    <td>{variable.description}</td>
+                    <td>{variable.unit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </p>
         </div>
       )}
