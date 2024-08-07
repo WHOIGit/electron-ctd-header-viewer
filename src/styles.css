@@ -161,3 +161,10 @@ h1 {
   color: #7f8c8d;
   font-style: italic;
 }
+
+.map-widget {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}

@@ -3,6 +3,7 @@ import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import EasyEdit from 'react-easy-edit';
 import { parseCTDHeader } from './CTDHeaderParser';
+import MapWidget from './MapWidget'; 
 import './styles.css';  // Make sure to import your CSS file
 
 const Custom24HourTimeInput = ({ value, onChange }) => {
@@ -191,6 +192,9 @@ const CTDHeaderViewer = () => {
                 cancelButtonLabel="Cancel"
               />
             </span>
+          </p>
+          <p>
+            <MapWidget latitude={parseResult.latitude} longitude={parseResult.longitude} />
           </p>
           <p>
             <span className="label">Variables:</span>
