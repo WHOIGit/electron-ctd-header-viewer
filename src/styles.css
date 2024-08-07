@@ -1,81 +1,81 @@
 /* src/styles.css */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
 }
 
 .App {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #333;
-    text-align: center;
+  color: #333;
+  text-align: center;
 }
 
 .dropzone {
-    border: 2px dashed #cccccc;
-    border-radius: 4px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: border-color 0.3s ease;
+  border: 2px dashed #cccccc;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
 }
 
 .dropzone:hover {
-    border-color: #666;
+  border-color: #666;
 }
 
 .parsed-results {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
 .parsed-results h2 {
-    margin-top: 0;
-    color: #444;
+  margin-top: 0;
+  color: #444;
 }
 
 .parsed-results p {
-    margin: 10px 0;
-    line-height: 1.4;
+  margin: 10px 0;
+  line-height: 1.4;
 }
 
 .easy-edit-inline-wrapper {
-    display: inline-block;
-    margin-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 .easy-edit-component-wrapper {
-    display: inline-block;
+  display: inline-block;
 }
 
 .easy-edit-button-wrapper {
-    display: inline-block;
-    margin-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 .easy-edit-button {
-    margin-right: 5px;
-    padding: 2px 5px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
+  margin-right: 5px;
+  padding: 2px 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .easy-edit-button:hover {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
 
 .label {
@@ -90,74 +90,74 @@ h1 {
 }
 
 .custom-time-input {
-    display: flex;
-    align-items: center;
-  }
-  
-  .custom-time-input input[type="date"] {
-    margin-right: 5px;
-  }
-  
-  .custom-time-input input[type="text"] {
-    width: 2em;
-    padding: 2px;
-    text-align: center;
-    margin-right: 2px;
-  }
-  
-  .custom-time-input .time-separator {
-    margin: 0 2px;
-  }
-  
-  .custom-time-input label {
-    font-size: 0.8em;
-    margin-top: 2px;
-    text-align: center;
-    display: block;
-  }
-  
-  .custom-time-input .time-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+}
 
-  .variables-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+.custom-time-input input[type="date"] {
+  margin-right: 5px;
+}
+
+.custom-time-input input[type="text"] {
+  width: 2em;
+  padding: 2px;
+  text-align: center;
+  margin-right: 2px;
+}
+
+.custom-time-input .time-separator {
+  margin: 0 2px;
+}
+
+.custom-time-input label {
+  font-size: 0.8em;
+  margin-top: 2px;
+  text-align: center;
+  display: block;
+}
+
+.custom-time-input .time-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.variables-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  font-size: small;
 }
 
 .variables-table th,
 .variables-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .variables-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 0.9em;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
 }
 
 .variables-table tr:nth-child(even) {
-    background-color: #f8f8f8;
+  background-color: #f2f2f2;
 }
 
 .variables-table tr:hover {
-    background-color: #e8f4ff;
+  background-color: #e8f4ff;
 }
 
 .variables-table td:first-child {
-    font-weight: bold;
-    color: #2c3e50;
+  font-weight: bold;
+  color: #2c3e50;
 }
 
 .variables-table td:last-child {
-    color: #7f8c8d;
-    font-style: italic;
+  color: #7f8c8d;
+  font-style: italic;
 }
