@@ -6,11 +6,11 @@ import L from 'leaflet';
 // Create a custom icon
 const customIcon = new L.Icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-    iconSize: [12, 20],  // Reduced from [25, 41]
-    iconAnchor: [6, 20], // Adjusted to half the width and full height
-    popupAnchor: [1, -17], // Adjusted to half the previous value
+    iconSize: [12, 20],
+    iconAnchor: [6, 20],
+    popupAnchor: [1, -17],
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    shadowSize: [20, 20]  // Reduced from [41, 41]
+    shadowSize: [20, 20]
   });
 
 const MapWidget = ({ latitude, longitude }) => {
