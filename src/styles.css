@@ -196,3 +196,24 @@ h1 {
     flex: 1 1 auto;
   }
 }
+
+.tab-navigation {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  border-bottom: 2px solid #007bff;
+  font-weight: bold;
+}
+
+.tab-content {
+  padding: 20px;
+}

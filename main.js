@@ -11,6 +11,7 @@ function createWindow() {
       enableRemoteModule: true,
     },
   });
+  //win.webContents.openDevTools(); // FIXME debug
 
   win.loadFile('index.html');
 }

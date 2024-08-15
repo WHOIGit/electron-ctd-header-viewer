@@ -1,11 +1,11 @@
 import React from 'react';
-import CTDHeaderViewer from './CTDHeaderViewer';
+import MainContainer from './MainContainer';
 import './styles.css';
 
 function App() {
   return (
     <div className="App">
-      <CTDHeaderViewer />
+      <MainContainer />
     </div>
   );
 }

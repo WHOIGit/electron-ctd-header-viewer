@@ -13,7 +13,7 @@ const customIcon = new L.Icon({
     shadowSize: [20, 20]
   });
 
-const MapWidget = ({ latitude, longitude }) => {
+const SingleMarkerMap = ({ latitude, longitude }) => {
   const position = [latitude, longitude];
 
   return (
@@ -35,4 +35,32 @@ const MapWidget = ({ latitude, longitude }) => {
   );
 };
 
-export default MapWidget;
+const MultiMarkerMap = ({ markers }) => {
+  const centerLatitude = markers.reduce((sum, marker) => sum + marker.latitude, 0) / markers.length;
+  const centerLongitude = markers.reduce((sum, marker) => sum + marker.longitude, 0) / markers.length;
+  return (
+    <div className="map-widget">
+      <MapContainer center={[centerLatitude, centerLongitude]} zoom={7} style={{ height: '400px', width: '100%' }}>
+        <TileLayer
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}"
+          attribution="Tiles &copy; Esri &mdash; Sources: GEBCO, IHO-IOC GEBCO, NGS, Esri, DeLorme"
+          maxZoom={13}
+        />
+        {markers.map((marker, index) => (
+          <Marker key={index} position={[marker.latitude, marker.longitude]} icon={customIcon}>
+            <Popup>
+              Latitude: {marker.latitude.toFixed(4)}<br />
+              Longitude: {marker.longitude.toFixed(4)}
+              {marker.description && marker.description.length > 0 && (
+                <div>{marker.description}</div>
+              )}
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
+  );
+};
+
+// export both components
+export { SingleMarkerMap, MultiMarkerMap };
